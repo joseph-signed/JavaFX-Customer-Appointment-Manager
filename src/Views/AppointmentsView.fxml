@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="311.0" prefWidth="977.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AppointmentsController">
+   <children>
+       <VBox alignment="TOP_CENTER" layoutY="24.0" prefHeight="240.0" prefWidth="977.0">
+            <TableView fx:id="Table_Appointment" prefHeight="200.0" prefWidth="970.0" style="-fx-background-color: grey;">
+                <columns>
+                    <TableColumn fx:id="Column_AppointmentId" prefWidth="103.0" text="Appointment ID" />
+                    <TableColumn fx:id="Column_AppointmentTitle" text="Title" />
+                    <TableColumn fx:id="Column_AppointmentDescription" prefWidth="110.0" text="Description" />
+                    <TableColumn fx:id="Column_AppointmentLocation" prefWidth="98.0" text="Location" />
+                    <TableColumn fx:id="Column_AppointmentContact" prefWidth="91.0" text="Contact" />
+                    <TableColumn fx:id="Column_AppointmentType" prefWidth="77.0" text="Type" />
+                    <TableColumn fx:id="Column_AppointmentStartTime" prefWidth="135.0" text="Start Date/Time" />
+                    <TableColumn fx:id="Column_AppointmentEndTime" prefWidth="119.0" text="End Date/Time" />
+                    <TableColumn fx:id="Column_AppointmentCustomerId" prefWidth="84.0" text="Customer ID" />
+                    <TableColumn fx:id="Column_AppointmentUserId" prefWidth="72.0" text="User ID" />
+                </columns>
+            </TableView>
+         <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <items>
+                 <Button fx:id="Button_Back" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#PressBack" prefWidth="140.0" text="Back" />
+                  <Button fx:id="Button_EditAppointment" mnemonicParsing="false" onAction="#PressEditAppointment" text="Edit Appointment" />
+                  <Button fx:id="Button_DeleteAppointment" mnemonicParsing="false" onAction="#PressDeleteAppointment" text="Delete Appointment" />
+                  <Button fx:id="Button_AddAppointment" mnemonicParsing="false" onAction="#PressAddAppointment" prefHeight="25.0" prefWidth="126.0" text="Add Appointment" />
+               <HBox prefHeight="0.0" prefWidth="200.0">
+                  <children>
+                        <RadioButton fx:id="RadioButton_Month" mnemonicParsing="false" onAction="#ApplyMonthFilter" text="This Month">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="FilterOptionGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="RadioButton_Week" mnemonicParsing="false" onAction="#ApplyWeekFilter" text="This Week">
+                            <toggleGroup>
+                                <fx:reference source="FilterOptionGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="RadioButton_All" mnemonicParsing="false" onAction="#ApplyAllFilter" selected="true" text="All">
+                            <toggleGroup>
+                                <fx:reference source="FilterOptionGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                  </children>
+               </HBox>
+            </items>
+         </ToolBar>
+       </VBox>
+         <Label layoutX="441.0" layoutY="4.0" text="Appointments" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
